@@ -89,6 +89,11 @@ namespace CosmeticShop
                     TextAlign = ContentAlignment.TopCenter,
                     Font = new Font("Tahoma", 9f, FontStyle.Regular)
                 };
+                //Label cost = new Label()
+                //{
+                //    Size = new Size(150, mainImage[f].Height / 5),
+                //    Location = new Point(mainImage[f].Location.X + ((mainPanel[f].Width -)))
+                //}
                 name.Add(text);
                 panel2.Controls.Add(name[f]);
                 name[f].BringToFront();
@@ -120,17 +125,71 @@ namespace CosmeticShop
                     panel2.Controls.Add(pb[i]);
                     pb[i].BringToFront();
                 }
+             
                 checkList.Add(pb);
             }
+            HookUpEventHandlers();
         
 
         }
+        private void HookUpEventHandlers()
+        {
+            foreach (var p in mainImage)
+            {
+                p.MouseMove += P_MouseMove;
+                p.MouseLeave += P_MouseLeave;
 
+            }
+        }
+
+
+
+        private void P_MouseMove(object sender, MouseEventArgs e)
+        {
+            //var pb = (PictureBox)sender;
+            //Product pr = db.Product.Find(idList[Convert.ToInt32(pb.Name)]);
+            //counter = 1 + allImageList[Convert.ToInt32(pb.Name)].Count;
+            //double areaChange = pb.Width / counter;
+
+            //for (int i = 0; i < counter; i++)
+            //{
+            //    if (MousePosition.X >= this.Left + pb.Location.X + areaChange * i - 1
+            //        && MousePosition.X <= this.Location.X + pb.Location.X + areaChange * (i + 1) + 1)
+            //    {
+            //        if (i == 0)
+            //        {
+            //            pb.BackgroundImage = Image.FromFile($@"..\..\{pr.MainImagePath[i]}");
+            //        }
+            //        else
+            //        {
+            //            pb.BackgroundImage = Image.FromFile($@"..\..\{allImageList[Convert.ToInt32(pb.Name)][i - 1]}");
+            //        }
+
+            //        pb.BackgroundImageLayout = ImageLayout.Stretch;
+            //        for (int j = 0; j < counter; j++)
+            //        {
+            //            if (j == i)
+            //            {
+            //                checkList[Convert.ToInt32(pb.Name)][j].BackColor = Color.FromArgb(255, 74, 109);
+            //            }
+            //            else
+            //            {
+            //                checkList[Convert.ToInt32(pb.Name)][j].BackColor = BackColor = Color.FromArgb(225, 228, 255);
+            //            }
+            //        }
+            //    }
+            //}
+        }
+        private void P_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
 
         private void Add_button_Click(object sender, EventArgs e)
         {
             AddProductForm addProductFrm = new AddProductForm();
             addProductFrm.db = db;
+            addProductFrm.pr = pr;
             addProductFrm.Show();
             this.Hide();
         }
@@ -142,12 +201,21 @@ namespace CosmeticShop
 
         private void Change_button_Click(object sender, EventArgs e)
         {
-
+            ChangeProductForm changeProductForm = new ChangeProductForm();
+            changeProductForm.db = db;
+            changeProductForm.Show();
+            this.Hide();
+            
         }
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-
+            DeleteProductForm deleteProductForm = new DeleteProductForm();
+            deleteProductForm.db = db;
+            deleteProductForm.Show();
+            this.Hide();
         }
+
+      
     }
 }

@@ -28,11 +28,12 @@ namespace CosmeticShop
         private void AddProduct_button_Click(object sender, EventArgs e)
         {
             pr.Title = titleTextBox.Text;
-            pr.Cost = Convert.ToInt32(costTextBox.Text);
+            pr.Cost = Convert.ToDecimal(costTextBox.Text);
             pr.Description = descriptionTextBox.Text;
             pr.MainImagePath = mainImagePathTextBox.Text;
             pr.IsActive = isActiveCheckBox.Checked;
             pr.ManufacturerID = manufacturerIDComboBox.SelectedIndex;
+            db.Product.Add(pr);
             try
             {
                 db.SaveChanges();
@@ -59,6 +60,11 @@ namespace CosmeticShop
         {
             productBindingSource.DataSource = db.Product.ToList();
             manufacturerBindingSource.DataSource = db.Manufacturer.ToList();
+        }
+
+        private void ChooseImage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

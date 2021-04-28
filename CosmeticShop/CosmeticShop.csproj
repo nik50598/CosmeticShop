@@ -61,6 +61,18 @@
     <Compile Include="AddProductForm.Designer.cs">
       <DependentUpon>AddProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeProductForm.Designer.cs">
+      <DependentUpon>ChangeProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteProductForm.Designer.cs">
+      <DependentUpon>DeleteProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddProductForm.resx">
       <DependentUpon>AddProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteProductForm.resx">
+      <DependentUpon>DeleteProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

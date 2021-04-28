@@ -38,16 +38,18 @@ namespace CosmeticShop
             System.Windows.Forms.Label manufacturerIDLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProductForm));
             this.costTextBox = new System.Windows.Forms.TextBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.isActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.mainImagePathTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.manufacturerIDComboBox = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Exit_button = new System.Windows.Forms.Button();
-            this.AddProduct_button = new System.Windows.Forms.Button();
             this.manufacturerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.AddProduct_button = new System.Windows.Forms.Button();
+            this.Exit_button = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ChooseImage = new System.Windows.Forms.Button();
             costLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             isActiveLabel = new System.Windows.Forms.Label();
@@ -55,8 +57,9 @@ namespace CosmeticShop
             titleLabel = new System.Windows.Forms.Label();
             manufacturerIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // costLabel
@@ -68,14 +71,6 @@ namespace CosmeticShop
             costLabel.TabIndex = 1;
             costLabel.Text = "Цена";
             // 
-            // costTextBox
-            // 
-            this.costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Cost", true));
-            this.costTextBox.Location = new System.Drawing.Point(139, 108);
-            this.costTextBox.Name = "costTextBox";
-            this.costTextBox.Size = new System.Drawing.Size(121, 22);
-            this.costTextBox.TabIndex = 2;
-            // 
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
@@ -84,15 +79,6 @@ namespace CosmeticShop
             descriptionLabel.Size = new System.Drawing.Size(63, 14);
             descriptionLabel.TabIndex = 3;
             descriptionLabel.Text = "Описание";
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(139, 234);
-            this.descriptionTextBox.Multiline = true;
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(248, 120);
-            this.descriptionTextBox.TabIndex = 4;
             // 
             // isActiveLabel
             // 
@@ -103,15 +89,6 @@ namespace CosmeticShop
             isActiveLabel.TabIndex = 7;
             isActiveLabel.Text = "Активен";
             // 
-            // isActiveCheckBox
-            // 
-            this.isActiveCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.productBindingSource, "IsActive", true));
-            this.isActiveCheckBox.Location = new System.Drawing.Point(140, 162);
-            this.isActiveCheckBox.Name = "isActiveCheckBox";
-            this.isActiveCheckBox.Size = new System.Drawing.Size(121, 37);
-            this.isActiveCheckBox.TabIndex = 8;
-            this.isActiveCheckBox.UseVisualStyleBackColor = true;
-            // 
             // mainImagePathLabel
             // 
             mainImagePathLabel.AutoSize = true;
@@ -120,14 +97,6 @@ namespace CosmeticShop
             mainImagePathLabel.Size = new System.Drawing.Size(126, 14);
             mainImagePathLabel.TabIndex = 9;
             mainImagePathLabel.Text = "Путь к изображению";
-            // 
-            // mainImagePathTextBox
-            // 
-            this.mainImagePathTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "MainImagePath", true));
-            this.mainImagePathTextBox.Location = new System.Drawing.Point(139, 136);
-            this.mainImagePathTextBox.Name = "mainImagePathTextBox";
-            this.mainImagePathTextBox.Size = new System.Drawing.Size(121, 22);
-            this.mainImagePathTextBox.TabIndex = 10;
             // 
             // titleLabel
             // 
@@ -138,18 +107,6 @@ namespace CosmeticShop
             titleLabel.TabIndex = 13;
             titleLabel.Text = "Название";
             // 
-            // titleTextBox
-            // 
-            this.titleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Title", true));
-            this.titleTextBox.Location = new System.Drawing.Point(139, 75);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(121, 22);
-            this.titleTextBox.TabIndex = 14;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(CosmeticShop.Product);
-            // 
             // manufacturerIDLabel
             // 
             manufacturerIDLabel.AutoSize = true;
@@ -159,9 +116,49 @@ namespace CosmeticShop
             manufacturerIDLabel.TabIndex = 14;
             manufacturerIDLabel.Text = " ID Производителя :";
             // 
+            // costTextBox
+            // 
+            this.costTextBox.Location = new System.Drawing.Point(139, 108);
+            this.costTextBox.Name = "costTextBox";
+            this.costTextBox.Size = new System.Drawing.Size(121, 22);
+            this.costTextBox.TabIndex = 2;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(CosmeticShop.Product);
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.Location = new System.Drawing.Point(139, 234);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(248, 120);
+            this.descriptionTextBox.TabIndex = 4;
+            // 
+            // isActiveCheckBox
+            // 
+            this.isActiveCheckBox.Location = new System.Drawing.Point(140, 162);
+            this.isActiveCheckBox.Name = "isActiveCheckBox";
+            this.isActiveCheckBox.Size = new System.Drawing.Size(121, 37);
+            this.isActiveCheckBox.TabIndex = 8;
+            this.isActiveCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // mainImagePathTextBox
+            // 
+            this.mainImagePathTextBox.Location = new System.Drawing.Point(139, 136);
+            this.mainImagePathTextBox.Name = "mainImagePathTextBox";
+            this.mainImagePathTextBox.Size = new System.Drawing.Size(121, 22);
+            this.mainImagePathTextBox.TabIndex = 10;
+            // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Location = new System.Drawing.Point(139, 75);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(121, 22);
+            this.titleTextBox.TabIndex = 14;
+            // 
             // manufacturerIDComboBox
             // 
-            this.manufacturerIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Manufacturer", true));
             this.manufacturerIDComboBox.DataSource = this.manufacturerBindingSource;
             this.manufacturerIDComboBox.DisplayMember = "Name";
             this.manufacturerIDComboBox.FormattingEnabled = true;
@@ -170,6 +167,10 @@ namespace CosmeticShop
             this.manufacturerIDComboBox.Size = new System.Drawing.Size(121, 22);
             this.manufacturerIDComboBox.TabIndex = 15;
             this.manufacturerIDComboBox.ValueMember = "ID";
+            // 
+            // manufacturerBindingSource
+            // 
+            this.manufacturerBindingSource.DataSource = typeof(CosmeticShop.Manufacturer);
             // 
             // panel2
             // 
@@ -181,16 +182,6 @@ namespace CosmeticShop
             this.panel2.Size = new System.Drawing.Size(901, 64);
             this.panel2.TabIndex = 16;
             // 
-            // Exit_button
-            // 
-            this.Exit_button.Location = new System.Drawing.Point(802, 12);
-            this.Exit_button.Name = "Exit_button";
-            this.Exit_button.Size = new System.Drawing.Size(87, 25);
-            this.Exit_button.TabIndex = 3;
-            this.Exit_button.Text = "Назад";
-            this.Exit_button.UseVisualStyleBackColor = true;
-            this.Exit_button.Click += new System.EventHandler(this.Exit_button_Click);
-            // 
             // AddProduct_button
             // 
             this.AddProduct_button.Location = new System.Drawing.Point(10, 12);
@@ -201,15 +192,42 @@ namespace CosmeticShop
             this.AddProduct_button.UseVisualStyleBackColor = true;
             this.AddProduct_button.Click += new System.EventHandler(this.AddProduct_button_Click);
             // 
-            // manufacturerBindingSource
+            // Exit_button
             // 
-            this.manufacturerBindingSource.DataSource = typeof(CosmeticShop.Manufacturer);
+            this.Exit_button.Location = new System.Drawing.Point(802, 12);
+            this.Exit_button.Name = "Exit_button";
+            this.Exit_button.Size = new System.Drawing.Size(87, 25);
+            this.Exit_button.TabIndex = 3;
+            this.Exit_button.Text = "Назад";
+            this.Exit_button.UseVisualStyleBackColor = true;
+            this.Exit_button.Click += new System.EventHandler(this.Exit_button_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(568, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(248, 206);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ChooseImage
+            // 
+            this.ChooseImage.Location = new System.Drawing.Point(652, 290);
+            this.ChooseImage.Name = "ChooseImage";
+            this.ChooseImage.Size = new System.Drawing.Size(87, 32);
+            this.ChooseImage.TabIndex = 18;
+            this.ChooseImage.Text = "Выбрать";
+            this.ChooseImage.UseVisualStyleBackColor = true;
+            this.ChooseImage.Click += new System.EventHandler(this.ChooseImage_Click);
             // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 473);
+            this.Controls.Add(this.ChooseImage);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(manufacturerIDLabel);
             this.Controls.Add(this.manufacturerIDComboBox);
@@ -231,8 +249,9 @@ namespace CosmeticShop
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddProduct_Closing);
             this.Load += new System.EventHandler(this.AddProductForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +270,7 @@ namespace CosmeticShop
         private System.Windows.Forms.Button Exit_button;
         private System.Windows.Forms.Button AddProduct_button;
         private System.Windows.Forms.BindingSource manufacturerBindingSource;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button ChooseImage;
     }
 }

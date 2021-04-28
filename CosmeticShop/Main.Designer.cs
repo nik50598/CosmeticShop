@@ -36,9 +36,9 @@ namespace CosmeticShop
             this.Change_button = new System.Windows.Forms.Button();
             this.Delete_button = new System.Windows.Forms.Button();
             this.Add_button = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.manufacturerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
             this.Top_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).BeginInit();
@@ -58,7 +58,7 @@ namespace CosmeticShop
             // 
             // Exit_button
             // 
-            this.Exit_button.Location = new System.Drawing.Point(680, 12);
+            this.Exit_button.Location = new System.Drawing.Point(815, 12);
             this.Exit_button.Name = "Exit_button";
             this.Exit_button.Size = new System.Drawing.Size(75, 23);
             this.Exit_button.TabIndex = 3;
@@ -96,14 +96,6 @@ namespace CosmeticShop
             this.Add_button.UseVisualStyleBackColor = true;
             this.Add_button.Click += new System.EventHandler(this.Add_button_Click);
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(CosmeticShop.Product);
-            // 
-            // manufacturerBindingSource
-            // 
-            this.manufacturerBindingSource.DataSource = typeof(CosmeticShop.Manufacturer);
-            // 
             // panel2
             // 
             this.panel2.AutoScroll = true;
@@ -115,10 +107,19 @@ namespace CosmeticShop
             this.panel2.Size = new System.Drawing.Size(900, 492);
             this.panel2.TabIndex = 2;
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(CosmeticShop.Product);
+            // 
+            // manufacturerBindingSource
+            // 
+            this.manufacturerBindingSource.DataSource = typeof(CosmeticShop.Manufacturer);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(902, 566);
             this.Controls.Add(this.panel2);
@@ -126,6 +127,8 @@ namespace CosmeticShop
             this.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Main";
             this.Text = "CosmeticShop";
             this.Top_panel.ResumeLayout(false);
