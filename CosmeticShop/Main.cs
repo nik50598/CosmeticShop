@@ -104,7 +104,8 @@ namespace CosmeticShop
                     BorderStyle = BorderStyle.FixedSingle,
                     BackgroundImage = Image.FromFile($@"..\..\{pr.MainImagePath}"),
                     BackgroundImageLayout = ImageLayout.Stretch,
-                    Location = new Point(mainPanel[f].Location.X + ((mainPanel[f].Width - 150) / 2), mainPanel[f].Location.Y + 10)
+                    Location = new Point(mainPanel[f].Location.X + ((mainPanel[f].Width - 150) / 2), mainPanel[f].Location.Y + 10),
+                    Name = $"{f}"
                 };
                 mainImage.Add(mainImg);
                 panel2.Controls.Add(mainImage[f]);
@@ -146,39 +147,38 @@ namespace CosmeticShop
 
         private void P_MouseMove(object sender, MouseEventArgs e)
         {
-            //var pb = (PictureBox)sender;
-            //Product pr = db.Product.Find(idList[Convert.ToInt32(pb.Name)]);
-            //counter = 1 + allImageList[Convert.ToInt32(pb.Name)].Count;
-            //double areaChange = pb.Width / counter;
+            var pb = (PictureBox)sender;
+            Product prd = db.Product.Find(idList[Convert.ToInt32(pb.Name)]);
+            counter = 1 + allImageList[Convert.ToInt32(pb.Name)].Count;
+            double areaChange = pb.Width / counter;
+            for (int i = 0; i < counter; i++)
+            {
+                if (MousePosition.X >= this.Left + pb.Location.X + areaChange * i - 1
+                    && MousePosition.X <= this.Location.X + pb.Location.X + areaChange * (i + 1) + 1)
+                {
+                    if (i == 0)
+                    {
+                        pb.BackgroundImage = Image.FromFile($@"..\..\{prd.MainImagePath}");
+                    }
+                    else
+                    {
+                        pb.BackgroundImage = Image.FromFile($@"..\..\{allImageList[Convert.ToInt32(pb.Name)][i - 1]}");
+                    }
 
-            //for (int i = 0; i < counter; i++)
-            //{
-            //    if (MousePosition.X >= this.Left + pb.Location.X + areaChange * i - 1
-            //        && MousePosition.X <= this.Location.X + pb.Location.X + areaChange * (i + 1) + 1)
-            //    {
-            //        if (i == 0)
-            //        {
-            //            pb.BackgroundImage = Image.FromFile($@"..\..\{pr.MainImagePath[i]}");
-            //        }
-            //        else
-            //        {
-            //            pb.BackgroundImage = Image.FromFile($@"..\..\{allImageList[Convert.ToInt32(pb.Name)][i - 1]}");
-            //        }
-
-            //        pb.BackgroundImageLayout = ImageLayout.Stretch;
-            //        for (int j = 0; j < counter; j++)
-            //        {
-            //            if (j == i)
-            //            {
-            //                checkList[Convert.ToInt32(pb.Name)][j].BackColor = Color.FromArgb(255, 74, 109);
-            //            }
-            //            else
-            //            {
-            //                checkList[Convert.ToInt32(pb.Name)][j].BackColor = BackColor = Color.FromArgb(225, 228, 255);
-            //            }
-            //        }
-            //    }
-            //}
+                    pb.BackgroundImageLayout = ImageLayout.Stretch;
+                    for (int j = 0; j < counter; j++)
+                    {
+                        if (j == i)
+                        {
+                            checkList[Convert.ToInt32(pb.Name)][j].BackColor = Color.FromArgb(255, 74, 109);
+                        }
+                        else
+                        {
+                            checkList[Convert.ToInt32(pb.Name)][j].BackColor = BackColor = Color.FromArgb(225, 228, 255);
+                        }
+                    }
+                }
+            }
         }
         private void P_MouseLeave(object sender, EventArgs e)
         {

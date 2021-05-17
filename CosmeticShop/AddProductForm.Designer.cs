@@ -120,7 +120,7 @@ namespace CosmeticShop
             // 
             this.costTextBox.Location = new System.Drawing.Point(139, 108);
             this.costTextBox.Name = "costTextBox";
-            this.costTextBox.Size = new System.Drawing.Size(121, 22);
+            this.costTextBox.Size = new System.Drawing.Size(175, 22);
             this.costTextBox.TabIndex = 2;
             // 
             // productBindingSource
@@ -147,14 +147,14 @@ namespace CosmeticShop
             // 
             this.mainImagePathTextBox.Location = new System.Drawing.Point(139, 136);
             this.mainImagePathTextBox.Name = "mainImagePathTextBox";
-            this.mainImagePathTextBox.Size = new System.Drawing.Size(121, 22);
+            this.mainImagePathTextBox.Size = new System.Drawing.Size(175, 22);
             this.mainImagePathTextBox.TabIndex = 10;
             // 
             // titleTextBox
             // 
             this.titleTextBox.Location = new System.Drawing.Point(139, 75);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(121, 22);
+            this.titleTextBox.Size = new System.Drawing.Size(175, 22);
             this.titleTextBox.TabIndex = 14;
             // 
             // manufacturerIDComboBox
@@ -164,7 +164,7 @@ namespace CosmeticShop
             this.manufacturerIDComboBox.FormattingEnabled = true;
             this.manufacturerIDComboBox.Location = new System.Drawing.Point(140, 202);
             this.manufacturerIDComboBox.Name = "manufacturerIDComboBox";
-            this.manufacturerIDComboBox.Size = new System.Drawing.Size(121, 22);
+            this.manufacturerIDComboBox.Size = new System.Drawing.Size(174, 22);
             this.manufacturerIDComboBox.TabIndex = 15;
             this.manufacturerIDComboBox.ValueMember = "ID";
             // 
@@ -174,6 +174,7 @@ namespace CosmeticShop
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.AddProduct_button);
             this.panel2.Controls.Add(this.Exit_button);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -204,6 +205,7 @@ namespace CosmeticShop
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(568, 78);
             this.pictureBox1.Name = "pictureBox1";
@@ -225,6 +227,7 @@ namespace CosmeticShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(901, 473);
             this.Controls.Add(this.ChooseImage);
             this.Controls.Add(this.pictureBox1);
